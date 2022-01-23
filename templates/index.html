@@ -1,0 +1,24 @@
+{% extends 'bootstrap/base.html' %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/styles.css" >
+{% endblock %}
+{% block title %}TYPE APP{% endblock %}
+{% block content %}
+<!-- Navbar as heading -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 main-topic">Type Disappearing App</span>
+    </div>
+  </nav>
+<div class="container-fluid index align-items-center text-center">
+  <!-- Typing start card -->
+  <div class="card" style="width: 40rem; height: 20rem;">
+    <div class="card-body">
+      <h1>Welcome To Typing app</h1>
+      <p class="card-text">When ever you are ready hit the start button to start typing, Remember to type and try to never stop for more than 5-10 seconds or your progress will disappear </p>
+      <a href="type" class="btn btn-primary">Start</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

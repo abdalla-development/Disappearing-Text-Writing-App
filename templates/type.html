@@ -1,0 +1,37 @@
+{% extends 'bootstrap/base.html' %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/styles.css" >
+{% endblock %}
+{% block title %}TYPE APP{% endblock %}
+{% block content %}
+
+<!-- Navbar as heading -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 main-topic">Type Disappearing App</span>
+    </div>
+  </nav>
+<!-- Form Text Area -->
+  <form id="myForm" action="{{ url_for('typing') }}" method="POST">
+      <div class="form-outline type-area text-center">
+        <label class="form-label">Start Type Below</label>
+        <textarea type="text" class="form-control" id="textarea" rows="6" name="textarea">{{text}}</textarea>
+      </div>
+  </form>
+<!-- Form Auto Submission after each 10 Seconds -->
+<script type="text/javascript">
+    window.onload=function(){
+        var auto = setTimeout(function(){ autoRefresh(); }, 100);
+
+        function submitform(){
+          document.forms["myForm"].submit();
+        }
+
+        function autoRefresh(){
+           clearTimeout(auto);
+           auto = setTimeout(function(){ submitform(); autoRefresh(); }, 10000);
+        }
+    }
+</script>
+{% endblock %}
